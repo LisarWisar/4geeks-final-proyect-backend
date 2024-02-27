@@ -395,6 +395,11 @@ def getUserPetListed():
 
 #TEST ENDPOINTS BELOW
 
+@app.route('/validate-route', methods = ["GET"])
+@jwt_required()
+def ValidateRoute():
+   return jsonify({"status": "ok"}),200
+
 @app.route('/postman/calendar', methods=['GET'])
 def getAppointmentsPostman():
     appointments = Appointment.query.all()
